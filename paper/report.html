@@ -1,0 +1,259 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="120"><title>Paper trading: киберспорт</title>
+<style>
+:root{--bg:#fcfcfb;--card:#ffffff;--ink:#1f1f1e;--muted:#6b6a66;--line:#e6e5e1;--accent:#2a78d6;--accent2:#eb6834;--neg:#c2312f;--ok:#1a7f55;--warn:#a35a00}
+@media (prefers-color-scheme:dark){:root{--bg:#161615;--card:#1f1f1e;--ink:#ecebe7;--muted:#a19f99;--line:#33322f;--accent:#5b9be6;--accent2:#f08a5d;--neg:#ef6b69;--ok:#4cc38a;--warn:#e0a24a}}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:22px;margin:0 0 4px} h2{font-size:16px;margin:0 0 4px}
+.muted{color:var(--muted)} small{font-size:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:16px 0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:12px}
+.kpis div{display:flex;flex-direction:column} .kpis span{color:var(--muted);font-size:13px} .kpis b{font-size:22px;font-variant-numeric:tabular-nums}
+.neg{color:var(--neg)} .status{display:inline-block;padding:2px 8px;border-radius:99px;font-size:13px;border:1px solid var(--line)}
+.status.ok{color:var(--ok)} .status.bad{color:var(--neg)}
+.warn{color:var(--warn);margin:4px 0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.chart{width:100%;height:auto} .chart .zero{stroke:var(--line);stroke-width:1}
+.tablewrap{overflow-x:auto} table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top} th{color:var(--muted);font-weight:500}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.legend span{display:inline-flex;align-items:center;gap:6px;margin-right:16px;font-size:13px} .legend i{width:14px;height:3px;display:inline-block}
+</style></head><body><main>
+<h1>Paper trading: киберспорт до матча</h1>
+<p class="muted">Виртуальные сделки без денег. Основное правило: ≥2 кошелька из топ-50 вошли в один исход за 6 ч до матча → лимитка по их цене +1¢ на 5 минут, ставка до $100. Для сравнения параллельно ведётся правило «достаточно 1 кошелька».
+Обновлено 09.11 15:06 · <span class="status ok">бот работает</span>
+· список кошельков: 2026-11 · открытых рынков: 5254</p>
+
+<section class="card"><h2>Сигналы</h2><div class="kpis">
+  <div><span>Всего сигналов</span><b>1</b><small>торгуемых: 1</small></div>
+  <div><span>Исполнено (пассивно)</span><b>1</b><small>≈ 26 в месяц · бэктест: 50–100</small></div>
+  <div><span>Цель для вывода</span><b>1 / 200</b><small>закрытых сделок</small></div>
+  <div><span>По статусам</span><small>исполнен: 1</small></div>
+</div></section>
+<div class="grid2"><section class="card"><h2>Основное правило (2 кошелька): лимитка 5 мин</h2><p class="muted">Исполнение только если по нашей цене реально прошли сделки; ставка ≤ 50% этого объёма.</p><div class="kpis">
+          <div><span>Закрыто сделок</span><b>1</b><small>ещё открыто: 0</small></div>
+          <div><span>PnL</span><b class="neg">-101 $</b><small>оборот 100 $</small></div>
+          <div><span>ROI на оборот</span><b>-101.0%</b><small>бэктест: ≈ +6%</small></div>
+          <div><span>Выигрышных</span><b>0%</b></div></div></section>
+<section class="card"><h2>Основное правило: купить сразу</h2><p class="muted">Сразу по стакану до цены смартов +2¢, до $100. В бэктесте это проверить было нельзя.</p><div class="kpis">
+          <div><span>Закрыто сделок</span><b>1</b><small>ещё открыто: 0</small></div>
+          <div><span>PnL</span><b class="neg">-101 $</b><small>оборот 100 $</small></div>
+          <div><span>ROI на оборот</span><b>-101.0%</b><small>в бэктесте не проверялось</small></div>
+          <div><span>Выигрышных</span><b>0%</b></div></div></section></div>
+<section class="card"><h2>Сравнение правил</h2><p class="muted">Исполнение и ставки одинаковые, разница только в том, сколько кошельков и из какого списка нужно для сигнала. Бэктест за 11 месяцев: 1 кошелёк даёт в 4 раза больше сделок при той же прибыли в долларах. «2 из топ-100» добавлено 8 ноября, потому что «2 из топ-50» с августа почти не срабатывает.</p>
+<div class="tablewrap"><table><thead><tr><th>Правило</th><th>Сигналов</th><th>Исполнено</th><th>Закрыто</th><th>PnL</th><th>ROI на оборот</th><th>Купить сразу: закрыто</th><th>PnL</th><th>ROI</th></tr></thead>
+<tbody><tr><td>2 кошелька (основное)</td><td class="num">1</td><td class="num">1<br><small class="muted">≈ 9/мес · бэктест ≈ 51/мес в среднем, с авг. ≈ 0–12/мес</small></td>
+          <td class="num">1</td><td class="num">-101 $</td><td class="num">-101.0%<br><small class="muted">бэктест +6.3%</small></td>
+          <td class="num">1</td><td class="num">-101 $</td><td class="num">-101.0%</td></tr><tr><td>1 кошелёк (сравнение)</td><td class="num">28</td><td class="num">9<br><small class="muted">≈ 83/мес · бэктест ≈ 206/мес</small></td>
+          <td class="num">8</td><td class="num">+171 $</td><td class="num">+26.9%<br><small class="muted">бэктест +1.7%</small></td>
+          <td class="num">14</td><td class="num">+224 $</td><td class="num">+16.0%</td></tr><tr><td>2 из топ-100 (сравнение)</td><td class="num">4</td><td class="num">3<br><small class="muted">≈ 79/мес · бэктест ≈ 108/мес</small></td>
+          <td class="num">1</td><td class="num">-101 $</td><td class="num">-101.0%<br><small class="muted">бэктест +1.9%</small></td>
+          <td class="num">2</td><td class="num">-104 $</td><td class="num">-52.0%</td></tr></tbody></table></div></section>
+<section class="card"><h2>Накопленный PnL (основное правило)</h2><p class="legend"><span><i style="background:var(--accent)"></i>лимитка 5 мин</span><span><i style="background:var(--accent2)"></i>купить сразу</span></p>
+<div class="grid2"><div><p class="muted">График появится после 2+ закрытых сделок.</p></div>
+<div><p class="muted">График появится после 2+ закрытых сделок.</p></div></div></section>
+<section class="card"><h2>Последние сигналы</h2><div class="tablewrap"><table>
+<thead><tr><th>Сигнал</th><th>Правило</th><th>Рынок</th><th>Исход</th><th>До старта</th><th>Цена смартов</th><th>Статус</th><th>Ставка</th><th>Итог</th><th>PnL</th><th>Купить сразу</th></tr></thead>
+<tbody><tr><td>09.11 15:03</td><td>1 кошелёк</td><td>Counter-Strike: HAVU vs BOJONG (BO3) - Elisa Open Suomi Group Stage<br><small class="muted">cs2-havu-bojong-2026-11-09</small></td>
+          <td>BOJONG<br><small><a href="https://polymarket.com/profile/0x984ffef12a23e7af5e2cef8e3283e0ab6a6e9a43" target="_blank" rel="noopener">0x984f…9a43</a></small></td>
+          <td>2.4 ч</td><td>0.125</td>
+          <td>ордер выставлен</td>
+          <td class="num"></td><td></td>
+          <td class="num"></td>
+          <td class="num"></td></tr><tr><td>09.11 13:07</td><td>1 кошелёк</td><td>LoL: Bilibili Gaming vs Gen.G (BO5) - Worlds Playoffs<br><small class="muted">lol-blg-gen-2026-11-14</small></td>
+          <td>Bilibili Gaming<br><small><a href="https://polymarket.com/profile/0x79b5eef80dfb788166e8606bbee6e186eb98df9b" target="_blank" rel="noopener">0x79b5…df9b</a></small></td>
+          <td>127.9 ч</td><td>0.380</td>
+          <td>исполнен</td>
+          <td class="num">48 $</td><td></td>
+          <td class="num"></td>
+          <td class="num">100 $ откр.</td></tr><tr><td>09.11 13:07</td><td>2 из топ-100</td><td>LoL: Bilibili Gaming vs Gen.G (BO5) - Worlds Playoffs<br><small class="muted">lol-blg-gen-2026-11-14</small></td>
+          <td>Bilibili Gaming<br><small><a href="https://polymarket.com/profile/0x1ca03f0bc7af7d39a6d35c2191bcd39eebf538ba" target="_blank" rel="noopener">0x1ca0…38ba</a> <a href="https://polymarket.com/profile/0x79b5eef80dfb788166e8606bbee6e186eb98df9b" target="_blank" rel="noopener">0x79b5…df9b</a></small></td>
+          <td>127.9 ч</td><td>0.380</td>
+          <td>исполнен</td>
+          <td class="num">48 $</td><td></td>
+          <td class="num"></td>
+          <td class="num">100 $ откр.</td></tr><tr><td>09.11 12:58</td><td>2 из топ-100</td><td>Counter-Strike: Balkan Outlaws vs ex-ENCE (BO3) - European Pro League Group B<br><small class="muted">cs2-bal2-ence1-2026-11-09</small></td>
+          <td>Balkan Outlaws<br><small><a href="https://polymarket.com/profile/0x8a7e040ee6c140dcac6d5d365b87593c43d1dd3c" target="_blank" rel="noopener">0x8a7e…dd3c</a> <a href="https://polymarket.com/profile/0x984ffef12a23e7af5e2cef8e3283e0ab6a6e9a43" target="_blank" rel="noopener">0x984f…9a43</a></small></td>
+          <td>0.5 ч</td><td>0.520</td>
+          <td>исполнен</td>
+          <td class="num">93 $</td><td></td>
+          <td class="num"></td>
+          <td class="num"></td></tr><tr><td>09.11 12:02</td><td>1 кошелёк</td><td>Counter-Strike: BakS eSports vs Leo Team (BO3) - CCT Europe Group Stage<br><small class="muted">cs2-baks-leo2-2026-11-09</small></td>
+          <td>BakS eSports<br><small><a href="https://polymarket.com/profile/0x984ffef12a23e7af5e2cef8e3283e0ab6a6e9a43" target="_blank" rel="noopener">0x984f…9a43</a></small></td>
+          <td>2.0 ч</td><td>0.588</td>
+          <td>не исполнен</td>
+          <td class="num"></td><td></td>
+          <td class="num"></td>
+          <td class="num"></td></tr><tr><td>09.11 12:01</td><td>1 кошелёк</td><td>Counter-Strike: Balkan Outlaws vs ex-ENCE (BO3) - European Pro League Group B<br><small class="muted">cs2-bal2-ence1-2026-11-09</small></td>
+          <td>Balkan Outlaws<br><small><a href="https://polymarket.com/profile/0x984ffef12a23e7af5e2cef8e3283e0ab6a6e9a43" target="_blank" rel="noopener">0x984f…9a43</a></small></td>
+          <td>1.5 ч</td><td>0.474</td>
+          <td>не исполнен</td>
+          <td class="num"></td><td></td>
+          <td class="num"></td>
+          <td class="num"></td></tr><tr><td>08.11 20:42</td><td>2 кошелька</td><td>LoL: Bilibili Gaming vs T1 (BO5) - Worlds Playoffs<br><small class="muted">lol-blg-t1-2026-11-08</small></td>
+          <td>T1<br><small><a href="https://polymarket.com/profile/0x4c07bf46017ef52c0bea3fe4253185dec1316200" target="_blank" rel="noopener">0x4c07…6200</a> <a href="https://polymarket.com/profile/0x79b5eef80dfb788166e8606bbee6e186eb98df9b" target="_blank" rel="noopener">0x79b5…df9b</a></small></td>
+          <td>3.3 ч</td><td>0.440</td>
+          <td>исполнен</td>
+          <td class="num">100 $</td><td>проиграл</td>
+          <td class="num">-101 $</td>
+          <td class="num">-101 $</td></tr><tr><td>08.11 20:42</td><td>2 из топ-100</td><td>LoL: Bilibili Gaming vs T1 (BO5) - Worlds Playoffs<br><small class="muted">lol-blg-t1-2026-11-08</small></td>
+          <td>T1<br><small><a href="https://polymarket.com/profile/0x4c07bf46017ef52c0bea3fe4253185dec1316200" target="_blank" rel="noopener">0x4c07…6200</a> <a href="https://polymarket.com/profile/0x79b5eef80dfb788166e8606bbee6e186eb98df9b" target="_blank" rel="noopener">0x79b5…df9b</a></small></td>
+          <td>3.3 ч</td><td>0.440</td>
+          <td>исполнен</td>
+          <td class="num">100 $</td><td>проиграл</td>
+          <td class="num">-101 $</td>
+          <td class="num">-101 $</td></tr><tr><td>08.11 20:34</td><td>1 кошелёк</td><td>LoL: Bilibili Gaming vs T1 (BO5) - Worlds Playoffs<br><small class="muted">lol-blg-t1-2026-11-08</small></td>
+          <td>T1<br><small><a href="https://polymarket.com/profile/0x4c07bf46017ef52c0bea3fe4253185dec1316200" target="_blank" rel="noopener">0x4c07…6200</a></small></td>
+          <td>3.4 ч</td><td>0.440</td>
+          <td>исполнен</td>
+          <td class="num">100 $</td><td>проиграл</td>
+          <td class="num">-101 $</td>
+          <td class="num">-101 $</td></tr><tr><td>08.11 17:54</td><td>1 кошелёк</td><td>Counter-Strike: Ryvex vs Drama eSports (BO3) - CCT Europe Closed Qualifier: Series Group D<br><small class="muted">cs2-ryvex-drama-2026-11-08</small></td>
+          <td>Drama eSports<br><small><a href="https://polymarket.com/profile/0xc2f2d01b227948e59f25aeb3d49564b8975d0ff7" target="_blank" rel="noopener">0xc2f2…0ff7</a></small></td>
+          <td>2.1 ч</td><td>0.580</td>
+          <td>цена убежала<br><small class="muted">цена уже ушла выше ref + 5¢</small></td>
+          <td class="num"></td><td></td>
+          <td class="num"></td>
+          <td class="num"></td></tr><tr><td>08.11 15:55</td><td>1 кошелёк</td><td>Dota 2: Xipto Esports vs Nemiga Gaming - Game 1 Winner<br><small class="muted">dota2-xe-nemiga-2026-11-08</small></td>
+          <td>Nemiga Gaming<br><small><a href="https://polymarket.com/profile/0xc5d909a16130a0a0b61af3db09a89e108093b188" target="_blank" rel="noopener">0xc5d9…b188</a></small></td>
+          <td>0.1 ч</td><td>0.320</td>
+          <td>слишком близко к старту<br><small class="muted">ордер не успевает до старта матча</small></td>
+          <td class="num"></td><td></td>
+          <td class="num"></td>
+          <td class="num"></td></tr><tr><td>08.11 13:52</td><td>1 кошелёк</td><td>Counter-Strike: Prestige vs KUUSAMO.gg (BO3) - CCT Europe Closed Qualifier: Series Group B<br><small class="muted">cs2-pre-ksm-2026-11-08</small></td>
+          <td>Prestige<br><small><a href="https://polymarket.com/profile/0x984ffef12a23e7af5e2cef8e3283e0ab6a6e9a43" target="_blank" rel="noopener">0x984f…9a43</a></small></td>
+          <td>0.1 ч</td><td>0.640</td>
+          <td>исполнен</td>
+          <td class="num">100 $</td><td>выиграл</td>
+          <td class="num">+53 $</td>
+          <td class="num">+53 $</td></tr><tr><td>08.11 13:49</td><td>1 кошелёк</td><td>LoL: Bilibili Gaming vs T1 - Game 1 Winner<br><small class="muted">lol-blg-t1-2026-11-08</small></td>
+          <td>Bilibili Gaming<br><small><a href="https://polymarket.com/profile/0x7472de5417d6fbfa4a432721a9bf7cf006175349" target="_blank" rel="noopener">0x7472…5349</a></small></td>
+          <td>10.2 ч</td><td>0.530</td>
+          <td>исполнен</td>
+          <td class="num">10 $</td><td>выиграл</td>
+          <td class="num">+8 $</td>
+          <td class="num">+88 $</td></tr><tr><td>08.11 12:32</td><td>2 из топ-100</td><td>Counter-Strike: 6yuBoJlbl vs megoshort (BO3) - CCT Europe Group Stage<br><small class="muted">cs2-6yuboj-meg1-2026-11-08</small></td>
+          <td>megoshort<br><small><a href="https://polymarket.com/profile/0xd37d84a14d70ac7300defe9997074b3b3fd7c735" target="_blank" rel="noopener">0xd37d…c735</a> <a href="https://polymarket.com/profile/0xf0f1ffeaae71563ae11cffd8169cab0550cd7b69" target="_blank" rel="noopener">0xf0f1…7b69</a></small></td>
+          <td>4.5 ч</td><td>0.490</td>
+          <td>не исполнен</td>
+          <td class="num"></td><td>50/50</td>
+          <td class="num"></td>
+          <td class="num">-3 $</td></tr><tr><td>08.11 12:30</td><td>1 кошелёк</td><td>Counter-Strike: 6yuBoJlbl vs megoshort (BO3) - CCT Europe Group Stage<br><small class="muted">cs2-6yuboj-meg1-2026-11-08</small></td>
+          <td>megoshort<br><small><a href="https://polymarket.com/profile/0xf0f1ffeaae71563ae11cffd8169cab0550cd7b69" target="_blank" rel="noopener">0xf0f1…7b69</a></small></td>
+          <td>4.5 ч</td><td>0.430</td>
+          <td>цена убежала<br><small class="muted">цена уже ушла выше ref + 5¢</small></td>
+          <td class="num"></td><td></td>
+          <td class="num"></td>
+          <td class="num"></td></tr><tr><td>08.11 07:55</td><td>1 кошелёк</td><td>Map Handicap: MOUZ (-1.5) vs TheMongolz (+1.5)<br><small class="muted">cs2-mglz-mouz-2026-11-08</small></td>
+          <td>MOUZ<br><small><a href="https://polymarket.com/profile/0x91c572a0d13c02136efb9252cc3b49408557c7bb" target="_blank" rel="noopener">0x91c5…c7bb</a></small></td>
+          <td>1.6 ч</td><td>0.640</td>
+          <td>исполнен</td>
+          <td class="num">100 $</td><td>выиграл</td>
+          <td class="num">+53 $</td>
+          <td class="num">+55 $</td></tr><tr><td>08.11 02:53</td><td>1 кошелёк</td><td>Counter-Strike: TheMongolz vs MOUZ (BO5) - IEM Beijing Playoffs<br><small class="muted">cs2-mglz-mouz-2026-11-08</small></td>
+          <td>TheMongolz<br><small><a href="https://polymarket.com/profile/0x660a4e3a52f4a7b116f88c5d02ce8a6b67733d22" target="_blank" rel="noopener">0x660a…3d22</a></small></td>
+          <td>6.6 ч</td><td>0.210</td>
+          <td>найден поздно<br><small class="muted">найден через 62 мин</small></td>
+          <td class="num"></td><td></td>
+          <td class="num"></td>
+          <td class="num"></td></tr><tr><td>08.11 00:51</td><td>1 кошелёк</td><td>Games Total: O/U 2.5<br><small class="muted">cs2-navi-bb3-2026-11-07</small></td>
+          <td>Under<br><small><a href="https://polymarket.com/profile/0x91c572a0d13c02136efb9252cc3b49408557c7bb" target="_blank" rel="noopener">0x91c5…c7bb</a></small></td>
+          <td>5.1 ч</td><td>0.530</td>
+          <td>найден поздно<br><small class="muted">найден через 185 мин</small></td>
+          <td class="num"></td><td></td>
+          <td class="num"></td>
+          <td class="num"></td></tr><tr><td>07.11 22:02</td><td>1 кошелёк</td><td>LoL: Invictus Gaming vs Gen.G (BO5) - Worlds Playoffs<br><small class="muted">lol-ig1-gen-2026-11-07</small></td>
+          <td>Invictus Gaming<br><small><a href="https://polymarket.com/profile/0x4c07bf46017ef52c0bea3fe4253185dec1316200" target="_blank" rel="noopener">0x4c07…6200</a></small></td>
+          <td>2.0 ч</td><td>0.210</td>
+          <td>исполнен</td>
+          <td class="num">100 $</td><td>проиграл</td>
+          <td class="num">-101 $</td>
+          <td class="num">-101 $</td></tr><tr><td>07.11 17:47</td><td>1 кошелёк</td><td>Games Total: O/U 4.5<br><small class="muted">cs2-mglz-mouz-2026-11-08</small></td>
+          <td>Under<br><small><a href="https://polymarket.com/profile/0x91c572a0d13c02136efb9252cc3b49408557c7bb" target="_blank" rel="noopener">0x91c5…c7bb</a></small></td>
+          <td>15.7 ч</td><td>0.741</td>
+          <td>не исполнен</td>
+          <td class="num"></td><td>выиграл</td>
+          <td class="num"></td>
+          <td class="num">+32 $</td></tr><tr><td>07.11 16:28</td><td>1 кошелёк</td><td>LoL: Invictus Gaming vs Gen.G - Game 1 Winner<br><small class="muted">lol-ig1-gen-2026-11-07</small></td>
+          <td>Gen.G<br><small><a href="https://polymarket.com/profile/0x7472de5417d6fbfa4a432721a9bf7cf006175349" target="_blank" rel="noopener">0x7472…5349</a></small></td>
+          <td>7.5 ч</td><td>0.710</td>
+          <td>не исполнен</td>
+          <td class="num"></td><td>выиграл</td>
+          <td class="num"></td>
+          <td class="num">+40 $</td></tr><tr><td>07.11 15:26</td><td>1 кошелёк</td><td>Counter-Strike: BRUTE SQ vs Dynamo Eclot Phoenix (BO3) - MČR Group B<br><small class="muted">cs2-brutes-dep5-2026-11-07</small></td>
+          <td>BRUTE SQ<br><small><a href="https://polymarket.com/profile/0x984ffef12a23e7af5e2cef8e3283e0ab6a6e9a43" target="_blank" rel="noopener">0x984f…9a43</a></small></td>
+          <td>6.1 ч</td><td>0.670</td>
+          <td>не исполнен</td>
+          <td class="num"></td><td></td>
+          <td class="num"></td>
+          <td class="num"></td></tr><tr><td>07.11 15:06</td><td>1 кошелёк</td><td>Counter-Strike: OG vs G2 Ares (BO3) - ESL Challenger League Europe Cup #11 Group A<br><small class="muted">cs2-og1-g2a-2026-11-07</small></td>
+          <td>G2 Ares<br><small><a href="https://polymarket.com/profile/0x984ffef12a23e7af5e2cef8e3283e0ab6a6e9a43" target="_blank" rel="noopener">0x984f…9a43</a></small></td>
+          <td>0.9 ч</td><td>0.260</td>
+          <td>не исполнен</td>
+          <td class="num"></td><td>проиграл</td>
+          <td class="num"></td>
+          <td class="num">-101 $</td></tr><tr><td>07.11 12:52</td><td>1 кошелёк</td><td>Dota 2: Froglings vs Astra Invicta (BO3) - 1win Essence Play-in Group A<br><small class="muted">dota2-frogli-ai1-2026-11-07</small></td>
+          <td>Froglings<br><small><a href="https://polymarket.com/profile/0xe21cff72d4004e36d6047e837c198e33fe99b754" target="_blank" rel="noopener">0xe21c…b754</a></small></td>
+          <td>5.1 ч</td><td>0.500</td>
+          <td>не исполнен</td>
+          <td class="num"></td><td>50/50</td>
+          <td class="num"></td>
+          <td class="num">-1 $</td></tr><tr><td>07.11 11:33</td><td>1 кошелёк</td><td>Games Total: O/U 2.5<br><small class="muted">cs2-mouz-bb3-2026-11-07</small></td>
+          <td>Under<br><small><a href="https://polymarket.com/profile/0x91c572a0d13c02136efb9252cc3b49408557c7bb" target="_blank" rel="noopener">0x91c5…c7bb</a></small></td>
+          <td>0.2 ч</td><td>0.555</td>
+          <td>исполнен</td>
+          <td class="num">25 $</td><td>выиграл</td>
+          <td class="num">+19 $</td>
+          <td class="num">+81 $</td></tr><tr><td>07.11 10:48</td><td>1 кошелёк</td><td>Counter-Strike: MOUZ vs BetBoom Team (BO3) - IEM Beijing Playoffs<br><small class="muted">cs2-mouz-bb3-2026-11-07</small></td>
+          <td>MOUZ<br><small><a href="https://polymarket.com/profile/0xb580b3480b139ec8732db38df63b3f5497b09ba2" target="_blank" rel="noopener">0xb580…9ba2</a></small></td>
+          <td>0.9 ч</td><td>0.710</td>
+          <td>исполнен</td>
+          <td class="num">100 $</td><td>выиграл</td>
+          <td class="num">+38 $</td>
+          <td class="num">+40 $</td></tr><tr><td>07.11 04:21</td><td>1 кошелёк</td><td>Game Handicap: AG (-1.5) vs TYLOO (+1.5)<br><small class="muted">r6siege-tyloo-allgam-2026-11-06</small></td>
+          <td>TYLOO<br><small><a href="https://polymarket.com/profile/0xc2f2d01b227948e59f25aeb3d49564b8975d0ff7" target="_blank" rel="noopener">0xc2f2…0ff7</a></small></td>
+          <td>1.1 ч</td><td>0.250</td>
+          <td>цена убежала<br><small class="muted">цена уже ушла выше ref + 5¢</small></td>
+          <td class="num"></td><td></td>
+          <td class="num"></td>
+          <td class="num"></td></tr><tr><td>06.11 23:58</td><td>1 кошелёк</td><td>LoL: Karmine Corp vs T1 - Game 1 Winner<br><small class="muted">lol-kc-t1-2026-11-04</small></td>
+          <td>T1<br><small><a href="https://polymarket.com/profile/0x7472de5417d6fbfa4a432721a9bf7cf006175349" target="_blank" rel="noopener">0x7472…5349</a></small></td>
+          <td>0.0 ч</td><td>0.680</td>
+          <td>слишком близко к старту<br><small class="muted">ордер не успевает до старта матча</small></td>
+          <td class="num"></td><td></td>
+          <td class="num"></td>
+          <td class="num"></td></tr><tr><td>06.11 19:58</td><td>1 кошелёк</td><td>Counter-Strike: Dynamo Eclot Phoenix vs B.LINE (BO3) - MČR Group B<br><small class="muted">cs2-dep5-bline-2026-11-06</small></td>
+          <td>Dynamo Eclot Phoenix<br><small><a href="https://polymarket.com/profile/0x984ffef12a23e7af5e2cef8e3283e0ab6a6e9a43" target="_blank" rel="noopener">0x984f…9a43</a></small></td>
+          <td>1.5 ч</td><td>0.603</td>
+          <td>не исполнен</td>
+          <td class="num"></td><td></td>
+          <td class="num"></td>
+          <td class="num"></td></tr><tr><td>06.11 18:18</td><td>1 кошелёк</td><td>Map Handicap: SINNERS Legacy (-1.5) vs Thousand (+1.5)<br><small class="muted">cs2-sinner-thousa-2026-11-06</small></td>
+          <td>Thousand<br><small><a href="https://polymarket.com/profile/0x984ffef12a23e7af5e2cef8e3283e0ab6a6e9a43" target="_blank" rel="noopener">0x984f…9a43</a></small></td>
+          <td>0.7 ч</td><td>0.759</td>
+          <td>не исполнен</td>
+          <td class="num"></td><td>выиграл</td>
+          <td class="num"></td>
+          <td class="num">+29 $</td></tr><tr><td>06.11 16:38</td><td>1 кошелёк</td><td>Counter-Strike: TheMongolz vs Natus Vincere (BO3) - IEM Beijing Playoffs<br><small class="muted">cs2-mglz-navi-2026-11-07</small></td>
+          <td>TheMongolz<br><small><a href="https://polymarket.com/profile/0x660a4e3a52f4a7b116f88c5d02ce8a6b67733d22" target="_blank" rel="noopener">0x660a…3d22</a></small></td>
+          <td>15.9 ч</td><td>0.320</td>
+          <td>исполнен</td>
+          <td class="num">100 $</td><td>выиграл</td>
+          <td class="num">+202 $</td>
+          <td class="num">+212 $</td></tr><tr><td>06.11 14:03</td><td>1 кошелёк</td><td>Counter-Strike: SINNERS Legacy vs Thousand (BO3) - MČR Group A<br><small class="muted">cs2-sinner-thousa-2026-11-06</small></td>
+          <td>Thousand<br><small><a href="https://polymarket.com/profile/0x984ffef12a23e7af5e2cef8e3283e0ab6a6e9a43" target="_blank" rel="noopener">0x984f…9a43</a></small></td>
+          <td>4.9 ч</td><td>0.530</td>
+          <td>не исполнен</td>
+          <td class="num"></td><td>проиграл</td>
+          <td class="num"></td>
+          <td class="num">-101 $</td></tr><tr><td>06.11 12:57</td><td>1 кошелёк</td><td>Counter-Strike: FURIA vs BetBoom Team - Map 1 Winner<br><small class="muted">cs2-furia-bb3-2026-11-06</small></td>
+          <td>FURIA<br><small><a href="https://polymarket.com/profile/0xc3973025163de81e367ad29c21e296e51684bb3b" target="_blank" rel="noopener">0xc397…bb3b</a></small></td>
+          <td>0.0 ч</td><td>0.602</td>
+          <td>слишком близко к старту<br><small class="muted">ордер не успевает до старта матча</small></td>
+          <td class="num"></td><td></td>
+          <td class="num"></td>
+          <td class="num"></td></tr></tbody></table></div></section>
+<section class="card"><h2>Топ-100 кошельков (2026-11)</h2><p class="muted">Ссылка открывает профиль на Polymarket. Адрес можно вставить и в Betmoar. Сделки за последние 7 дней: всего / в киберспорте до матча.</p>
+<div class="tablewrap"><table><thead><tr><th>#</th><th>Кошелёк</th><th>Сделок за 7 дней</th><th>До матча</th><th>Последняя сделка</th></tr></thead><tbody><tr><td>1</td><td><a href="https://polymarket.com/profile/0x7472de5417d6fbfa4a432721a9bf7cf006175349" target="_blank" rel="noopener">0x7472de5417d6fbfa4a432721a9bf7cf006175349</a></td><td class='num'>27</td><td class='num'>3</td><td>09.11 02:36</td></tr><tr><td>2</td><td><a href="https://polymarket.com/profile/0x01aecf2e19023997c8bc338524fcc7a89ec055f8" target="_blank" rel="noopener">0x01aecf2e19023997c8bc338524fcc7a89ec055f8</a></td><td class='num'>0</td><td class='num'>0</td><td>01.07 12:27</td></tr><tr><td>3</td><td><a href="https://polymarket.com/profile/0x224b16b3c67ad51f6302eab010a9e8f540a88927" target="_blank" rel="noopener">0x224b16b3c67ad51f6302eab010a9e8f540a88927</a></td><td class='num'>80</td><td class='num'>0</td><td>09.11 03:30</td></tr><tr><td>4</td><td><a href="https://polymarket.com/profile/0xf0ef71625df56a409e16bb0f19e71be965afc822" target="_blank" rel="noopener">0xf0ef71625df56a409e16bb0f19e71be965afc822</a></td><td class='num'>28</td><td class='num'>0</td><td>09.11 01:54</td></tr><tr><td>5</td><td><a href="https://polymarket.com/profile/0x3b215e2627a4ddc76dad02f263a860ade9914b63" target="_blank" rel="noopener">0x3b215e2627a4ddc76dad02f263a860ade9914b63</a></td><td class='num'>0</td><td class='num'>0</td><td>03.08 10:39</td></tr><tr><td>6</td><td><a href="https://polymarket.com/profile/0x116adf811dd0df4a192c9c36156c3472e617a2f2" target="_blank" rel="noopener">0x116adf811dd0df4a192c9c36156c3472e617a2f2</a></td><td class='num'>0</td><td class='num'>0</td><td>20.10 21:02</td></tr><tr><td>7</td><td><a href="https://polymarket.com/profile/0x072fc0e9ccdecbe811c0887f0536ecdbf433ffdd" target="_blank" rel="noopener">0x072fc0e9ccdecbe811c0887f0536ecdbf433ffdd</a></td><td class='num'>0</td><td class='num'>0</td><td>11.10 13:20</td></tr><tr><td>8</td><td><a href="https://polymarket.com/profile/0x984ffef12a23e7af5e2cef8e3283e0ab6a6e9a43" target="_blank" rel="noopener">0x984ffef12a23e7af5e2cef8e3283e0ab6a6e9a43</a></td><td class='num'>249</td><td class='num'>19</td><td>09.11 15:03</td></tr><tr><td>9</td><td><a href="https://polymarket.com/profile/0x4c07bf46017ef52c0bea3fe4253185dec1316200" target="_blank" rel="noopener">0x4c07bf46017ef52c0bea3fe4253185dec1316200</a></td><td class='num'>10</td><td class='num'>4</td><td>08.11 22:06</td></tr><tr><td>10</td><td><a href="https://polymarket.com/profile/0x8b236f5a1b95a06ec4d59a905af0ec8b73e56b2b" target="_blank" rel="noopener">0x8b236f5a1b95a06ec4d59a905af0ec8b73e56b2b</a></td><td class='num'>0</td><td class='num'>0</td><td>31.08 04:24</td></tr><tr><td>11</td><td><a href="https://polymarket.com/profile/0x0781872fe78deb6ad8147e482952b4a5461ec4ff" target="_blank" rel="noopener">0x0781872fe78deb6ad8147e482952b4a5461ec4ff</a></td><td class='num'>774</td><td class='num'>0</td><td>09.11 10:42</td></tr><tr><td>12</td><td><a href="https://polymarket.com/profile/0x733d3dbeafe1b9017082223b41f8d72ac82d1ae7" target="_blank" rel="noopener">0x733d3dbeafe1b9017082223b41f8d72ac82d1ae7</a></td><td class='num'>98</td><td class='num'>0</td><td>08.11 21:23</td></tr><tr><td>13</td><td><a href="https://polymarket.com/profile/0xe21cff72d4004e36d6047e837c198e33fe99b754" target="_blank" rel="noopener">0xe21cff72d4004e36d6047e837c198e33fe99b754</a></td><td class='num'>165</td><td class='num'>3</td><td>09.11 13:30</td></tr><tr><td>14</td><td><a href="https://polymarket.com/profile/0x9bc93c5049f8af63886b39be3f007255e79f358e" target="_blank" rel="noopener">0x9bc93c5049f8af63886b39be3f007255e79f358e</a></td><td class='num'>124</td><td class='num'>2</td><td>09.11 03:25</td></tr><tr><td>15</td><td><a href="https://polymarket.com/profile/0x5147406a245c713a4d384874334f45565172f078" target="_blank" rel="noopener">0x5147406a245c713a4d384874334f45565172f078</a></td><td class='num'>25</td><td class='num'>0</td><td>09.11 03:22</td></tr><tr><td>16</td><td><a href="https://polymarket.com/profile/0xf0f1ffeaae71563ae11cffd8169cab0550cd7b69" target="_blank" rel="noopener">0xf0f1ffeaae71563ae11cffd8169cab0550cd7b69</a></td><td class='num'>64</td><td class='num'>25</td><td>09.11 11:12</td></tr><tr><td>17</td><td><a href="https://polymarket.com/profile/0x4fb1b39c9ac857acc12cdb8c9bf1f5ff6698b109" target="_blank" rel="noopener">0x4fb1b39c9ac857acc12cdb8c9bf1f5ff6698b109</a></td><td class='num'>0</td><td class='num'>0</td><td>25.09 19:44</td></tr><tr><td>18</td><td><a href="https://polymarket.com/profile/0x63c64c0936b1840ee8f4936f523350cfb5fba5c9" target="_blank" rel="noopener">0x63c64c0936b1840ee8f4936f523350cfb5fba5c9</a></td><td class='num'>0</td><td class='num'>0</td><td>09.08 20:41</td></tr><tr><td>19</td><td><a href="https://polymarket.com/profile/0x86c878cde72660ec52f5e6f0f0438b76de8fc867" target="_blank" rel="noopener">0x86c878cde72660ec52f5e6f0f0438b76de8fc867</a></td><td class='num'>88</td><td class='num'>0</td><td>09.11 03:15</td></tr><tr><td>20</td><td><a href="https://polymarket.com/profile/0xfb6f07866e3643e92b897255809cf48e163690f8" target="_blank" rel="noopener">0xfb6f07866e3643e92b897255809cf48e163690f8</a></td><td class='num'>118</td><td class='num'>1</td><td>09.11 03:24</td></tr><tr><td>21</td><td><a href="https://polymarket.com/profile/0x260a29b63a7d71102c3bb7d232114fcd6895eb0f" target="_blank" rel="noopener">0x260a29b63a7d71102c3bb7d232114fcd6895eb0f</a></td><td class='num'>0</td><td class='num'>0</td><td>15.08 17:32</td></tr><tr><td>22</td><td><a href="https://polymarket.com/profile/0xb580b3480b139ec8732db38df63b3f5497b09ba2" target="_blank" rel="noopener">0xb580b3480b139ec8732db38df63b3f5497b09ba2</a></td><td class='num'>47</td><td class='num'>1</td><td>09.11 01:58</td></tr><tr><td>23</td><td><a href="https://polymarket.com/profile/0x842c9e2ba1ed0c9f0182fd3db42b7605e4fa6674" target="_blank" rel="noopener">0x842c9e2ba1ed0c9f0182fd3db42b7605e4fa6674</a></td><td class='num'>0</td><td class='num'>0</td><td>17.07 04:08</td></tr><tr><td>24</td><td><a href="https://polymarket.com/profile/0x792c764aaa4642974b8ae1b0d527259f1eddd2ec" target="_blank" rel="noopener">0x792c764aaa4642974b8ae1b0d527259f1eddd2ec</a></td><td class='num'>0</td><td class='num'>0</td><td>26.09 15:36</td></tr><tr><td>25</td><td><a href="https://polymarket.com/profile/0xd4f904ecac0ff22ac6601de6b972d4f8b6b4f619" target="_blank" rel="noopener">0xd4f904ecac0ff22ac6601de6b972d4f8b6b4f619</a></td><td class='num'>111</td><td class='num'>0</td><td>06.11 02:54</td></tr><tr><td>26</td><td><a href="https://polymarket.com/profile/0x70feb53b6e3337fcc9dd18929df62eba292f3c28" target="_blank" rel="noopener">0x70feb53b6e3337fcc9dd18929df62eba292f3c28</a></td><td class='num'>0</td><td class='num'>0</td><td>21.10 17:28</td></tr><tr><td>27</td><td><a href="https://polymarket.com/profile/0x66fc0a627ddb0c71a464353bd2268d75f0fa2a1f" target="_blank" rel="noopener">0x66fc0a627ddb0c71a464353bd2268d75f0fa2a1f</a></td><td class='num'>792</td><td class='num'>0</td><td>09.11 15:02</td></tr><tr><td>28</td><td><a href="https://polymarket.com/profile/0xc5d909a16130a0a0b61af3db09a89e108093b188" target="_blank" rel="noopener">0xc5d909a16130a0a0b61af3db09a89e108093b188</a></td><td class='num'>583</td><td class='num'>0</td><td>09.11 14:27</td></tr><tr><td>29</td><td><a href="https://polymarket.com/profile/0x05d1cf888e495a56bacdbfe9372ec40250a42bb3" target="_blank" rel="noopener">0x05d1cf888e495a56bacdbfe9372ec40250a42bb3</a></td><td class='num'>209</td><td class='num'>0</td><td>08.11 22:24</td></tr><tr><td>30</td><td><a href="https://polymarket.com/profile/0x5954034f00cc8e613badb141cb0dd935bc56b807" target="_blank" rel="noopener">0x5954034f00cc8e613badb141cb0dd935bc56b807</a></td><td class='num'>0</td><td class='num'>0</td><td>21.07 22:21</td></tr><tr><td>31</td><td><a href="https://polymarket.com/profile/0x970998da056e60c707d9b1fc55cfdf3d68c252ab" target="_blank" rel="noopener">0x970998da056e60c707d9b1fc55cfdf3d68c252ab</a></td><td class='num'>1141</td><td class='num'>0</td><td>09.11 15:04</td></tr><tr><td>32</td><td><a href="https://polymarket.com/profile/0x91c572a0d13c02136efb9252cc3b49408557c7bb" target="_blank" rel="noopener">0x91c572a0d13c02136efb9252cc3b49408557c7bb</a></td><td class='num'>157</td><td class='num'>10</td><td>09.11 14:35</td></tr><tr><td>33</td><td><a href="https://polymarket.com/profile/0x660a4e3a52f4a7b116f88c5d02ce8a6b67733d22" target="_blank" rel="noopener">0x660a4e3a52f4a7b116f88c5d02ce8a6b67733d22</a></td><td class='num'>9</td><td class='num'>3</td><td>08.11 02:53</td></tr><tr><td>34</td><td><a href="https://polymarket.com/profile/0xad7faefa2957774fe390fb17d8136c932da0d0d4" target="_blank" rel="noopener">0xad7faefa2957774fe390fb17d8136c932da0d0d4</a></td><td class='num'>10</td><td class='num'>0</td><td>04.11 17:42</td></tr><tr><td>35</td><td><a href="https://polymarket.com/profile/0xc2f2d01b227948e59f25aeb3d49564b8975d0ff7" target="_blank" rel="noopener">0xc2f2d01b227948e59f25aeb3d49564b8975d0ff7</a></td><td class='num'>479</td><td class='num'>6</td><td>09.11 14:29</td></tr><tr><td>36</td><td><a href="https://polymarket.com/profile/0x236448c21cafb8a9cf9bb93d2e66cd73cd8d18f2" target="_blank" rel="noopener">0x236448c21cafb8a9cf9bb93d2e66cd73cd8d18f2</a></td><td class='num'>0</td><td class='num'>0</td><td>10.10 16:37</td></tr><tr><td>37</td><td><a href="https://polymarket.com/profile/0x5a6bdda9047e09efa2d5b6f8de99bcc962de1a3e" target="_blank" rel="noopener">0x5a6bdda9047e09efa2d5b6f8de99bcc962de1a3e</a></td><td class='num'>0</td><td class='num'>0</td><td>13.07 23:15</td></tr><tr><td>38</td><td><a href="https://polymarket.com/profile/0xda164a1aa5a166021fd2bb6dc1e54881f58aac2b" target="_blank" rel="noopener">0xda164a1aa5a166021fd2bb6dc1e54881f58aac2b</a></td><td class='num'>221</td><td class='num'>1</td><td>09.11 07:39</td></tr><tr><td>39</td><td><a href="https://polymarket.com/profile/0xc3973025163de81e367ad29c21e296e51684bb3b" target="_blank" rel="noopener">0xc3973025163de81e367ad29c21e296e51684bb3b</a></td><td class='num'>220</td><td class='num'>1</td><td>09.11 06:24</td></tr><tr><td>40</td><td><a href="https://polymarket.com/profile/0x41e2e1ccf1e4940029af02259a31c6b89b9fa354" target="_blank" rel="noopener">0x41e2e1ccf1e4940029af02259a31c6b89b9fa354</a></td><td class='num'>81</td><td class='num'>0</td><td>09.11 03:22</td></tr><tr><td>41</td><td><a href="https://polymarket.com/profile/0xef9f982955687da2bfacf5775122ccc58e4d425e" target="_blank" rel="noopener">0xef9f982955687da2bfacf5775122ccc58e4d425e</a></td><td class='num'>0</td><td class='num'>0</td><td>15.07 18:40</td></tr><tr><td>42</td><td><a href="https://polymarket.com/profile/0x917bfdbafa45917b400776093e76a4aa7887e1ee" target="_blank" rel="noopener">0x917bfdbafa45917b400776093e76a4aa7887e1ee</a></td><td class='num'>62</td><td class='num'>0</td><td>09.11 03:15</td></tr><tr><td>43</td><td><a href="https://polymarket.com/profile/0xf8b9b160fe2641afde9906a2248a2d40c837dfbe" target="_blank" rel="noopener">0xf8b9b160fe2641afde9906a2248a2d40c837dfbe</a></td><td class='num'>0</td><td class='num'>0</td><td>22.10 21:31</td></tr><tr><td>44</td><td><a href="https://polymarket.com/profile/0xda16b58dec4535618332de0bdd13d081ca4c6da2" target="_blank" rel="noopener">0xda16b58dec4535618332de0bdd13d081ca4c6da2</a></td><td class='num'>0</td><td class='num'>0</td><td>05.06 23:01</td></tr><tr><td>45</td><td><a href="https://polymarket.com/profile/0x2a2c53bd278c04da9962fcf96490e17f3dfb9bc1" target="_blank" rel="noopener">0x2a2c53bd278c04da9962fcf96490e17f3dfb9bc1</a></td><td class='num'>0</td><td class='num'>0</td><td>11.06 22:14</td></tr><tr><td>46</td><td><a href="https://polymarket.com/profile/0x79b5eef80dfb788166e8606bbee6e186eb98df9b" target="_blank" rel="noopener">0x79b5eef80dfb788166e8606bbee6e186eb98df9b</a></td><td class='num'>2</td><td class='num'>2</td><td>09.11 13:07</td></tr><tr><td>47</td><td><a href="https://polymarket.com/profile/0xc9727ed498a58a9e8e8758d51c5a4eb0b752dcd9" target="_blank" rel="noopener">0xc9727ed498a58a9e8e8758d51c5a4eb0b752dcd9</a></td><td class='num'>28</td><td class='num'>0</td><td>08.11 18:45</td></tr><tr><td>48</td><td><a href="https://polymarket.com/profile/0x7c3a303199aa57601d409b6f7fc9a101d6905678" target="_blank" rel="noopener">0x7c3a303199aa57601d409b6f7fc9a101d6905678</a></td><td class='num'>0</td><td class='num'>0</td><td>10.07 23:30</td></tr><tr><td>49</td><td><a href="https://polymarket.com/profile/0x5f5ac21374790bf6450c25c0ea1a3a02b1e2bc49" target="_blank" rel="noopener">0x5f5ac21374790bf6450c25c0ea1a3a02b1e2bc49</a></td><td class='num'>0</td><td class='num'>0</td><td>02.06 02:00</td></tr><tr><td>50</td><td><a href="https://polymarket.com/profile/0xf815ac60a1f65b6894fef730c59b91e692104f3e" target="_blank" rel="noopener">0xf815ac60a1f65b6894fef730c59b91e692104f3e</a></td><td class='num'>7</td><td class='num'>0</td><td>07.11 17:00</td></tr><tr><td>51</td><td><a href="https://polymarket.com/profile/0xf3695af3a0cf7e5682e4e914c306e2596d068283" target="_blank" rel="noopener">0xf3695af3a0cf7e5682e4e914c306e2596d068283</a></td><td class='num'>0</td><td class='num'>0</td><td>26.07 22:04</td></tr><tr><td>52</td><td><a href="https://polymarket.com/profile/0x4223aac676d35328944aba3f7e11147350ff42c7" target="_blank" rel="noopener">0x4223aac676d35328944aba3f7e11147350ff42c7</a></td><td class='num'>0</td><td class='num'>0</td><td>06.09 00:11</td></tr><tr><td>53</td><td><a href="https://polymarket.com/profile/0x3146b9f11e88bf1afa2ec4f239e3a2cd2c13d153" target="_blank" rel="noopener">0x3146b9f11e88bf1afa2ec4f239e3a2cd2c13d153</a></td><td class='num'>0</td><td class='num'>0</td><td>20.07 22:05</td></tr><tr><td>54</td><td><a href="https://polymarket.com/profile/0xc0e4f49b80a2162aa8c1c1ad1bd0867574e3dd38" target="_blank" rel="noopener">0xc0e4f49b80a2162aa8c1c1ad1bd0867574e3dd38</a></td><td class='num'>1599</td><td class='num'>0</td><td>09.11 08:36</td></tr><tr><td>55</td><td><a href="https://polymarket.com/profile/0x4aefa3f861aeaf08c42b4310ac6713ade4d822d9" target="_blank" rel="noopener">0x4aefa3f861aeaf08c42b4310ac6713ade4d822d9</a></td><td class='num'>270</td><td class='num'>1</td><td>09.11 02:55</td></tr><tr><td>56</td><td><a href="https://polymarket.com/profile/0xc49fe658479db29e1a2fefebf0735f657dca9e05" target="_blank" rel="noopener">0xc49fe658479db29e1a2fefebf0735f657dca9e05</a></td><td class='num'>46</td><td class='num'>15</td><td>06.11 08:22</td></tr><tr><td>57</td><td><a href="https://polymarket.com/profile/0x0d874197406ca18d05d49c453ca07731c8bce214" target="_blank" rel="noopener">0x0d874197406ca18d05d49c453ca07731c8bce214</a></td><td class='num'>27</td><td class='num'>0</td><td>09.11 03:32</td></tr><tr><td>58</td><td><a href="https://polymarket.com/profile/0xc65ca4755436f82d8eb461e65781584b8cadea39" target="_blank" rel="noopener">0xc65ca4755436f82d8eb461e65781584b8cadea39</a></td><td class='num'>0</td><td class='num'>0</td><td>18.08 21:09</td></tr><tr><td>59</td><td><a href="https://polymarket.com/profile/0xd8feb32d4a3d0c311645e7e68ee284fdb651ba40" target="_blank" rel="noopener">0xd8feb32d4a3d0c311645e7e68ee284fdb651ba40</a></td><td class='num'>44</td><td class='num'>0</td><td>08.11 21:13</td></tr><tr><td>60</td><td><a href="https://polymarket.com/profile/0x5d4a2dc39da5710c1bf4cba442c0b6dc4c28c078" target="_blank" rel="noopener">0x5d4a2dc39da5710c1bf4cba442c0b6dc4c28c078</a></td><td class='num'>0</td><td class='num'>0</td><td>06.09 23:10</td></tr><tr><td>61</td><td><a href="https://polymarket.com/profile/0x3f416194b688ed320461c7f60b19a9f407e9b387" target="_blank" rel="noopener">0x3f416194b688ed320461c7f60b19a9f407e9b387</a></td><td class='num'>0</td><td class='num'>0</td><td>14.05 01:25</td></tr><tr><td>62</td><td><a href="https://polymarket.com/profile/0x8274e1791c21e8cc52e62c2122f3ae2f10f1d46d" target="_blank" rel="noopener">0x8274e1791c21e8cc52e62c2122f3ae2f10f1d46d</a></td><td class='num'>0</td><td class='num'>0</td><td>02.10 16:07</td></tr><tr><td>63</td><td><a href="https://polymarket.com/profile/0x56667d586b70e2d68c9affb04f0afe1cb8e6b2a2" target="_blank" rel="noopener">0x56667d586b70e2d68c9affb04f0afe1cb8e6b2a2</a></td><td class='num'>0</td><td class='num'>0</td><td>20.10 01:44</td></tr><tr><td>64</td><td><a href="https://polymarket.com/profile/0x10ef48324b3ebc06d9137794c70285e8e37a7d7b" target="_blank" rel="noopener">0x10ef48324b3ebc06d9137794c70285e8e37a7d7b</a></td><td class='num'>3811</td><td class='num'>5</td><td>09.11 15:02</td></tr><tr><td>65</td><td><a href="https://polymarket.com/profile/0x8a005386aad703e04d3fe1dbaaf49c6ff40e59e2" target="_blank" rel="noopener">0x8a005386aad703e04d3fe1dbaaf49c6ff40e59e2</a></td><td class='num'>0</td><td class='num'>0</td><td>06.09 10:57</td></tr><tr><td>66</td><td><a href="https://polymarket.com/profile/0x470c26ed46d7069dc90c37a3a15caf1efc552af9" target="_blank" rel="noopener">0x470c26ed46d7069dc90c37a3a15caf1efc552af9</a></td><td class='num'>0</td><td class='num'>0</td><td>22.08 20:33</td></tr><tr><td>67</td><td><a href="https://polymarket.com/profile/0xd3de95627de3d2cf37b6808e46749a9c7595e9bd" target="_blank" rel="noopener">0xd3de95627de3d2cf37b6808e46749a9c7595e9bd</a></td><td class='num'>260</td><td class='num'>11</td><td>09.11 15:04</td></tr><tr><td>68</td><td><a href="https://polymarket.com/profile/0x01756b2fa3e85a04b51e7d8792e6faae9e3269ed" target="_blank" rel="noopener">0x01756b2fa3e85a04b51e7d8792e6faae9e3269ed</a></td><td class='num'>0</td><td class='num'>0</td><td>23.05 18:33</td></tr><tr><td>69</td><td><a href="https://polymarket.com/profile/0xd32f677e7ecb937ca85f9607bf0166d941991496" target="_blank" rel="noopener">0xd32f677e7ecb937ca85f9607bf0166d941991496</a></td><td class='num'>0</td><td class='num'>0</td><td>01.08 16:44</td></tr><tr><td>70</td><td><a href="https://polymarket.com/profile/0xee56469713ab24f49f1177ada62721f291fdbba5" target="_blank" rel="noopener">0xee56469713ab24f49f1177ada62721f291fdbba5</a></td><td class='num'>65</td><td class='num'>0</td><td>08.11 17:23</td></tr><tr><td>71</td><td><a href="https://polymarket.com/profile/0x21ecbb95a15822bbdd4ab71345385a6056d95348" target="_blank" rel="noopener">0x21ecbb95a15822bbdd4ab71345385a6056d95348</a></td><td class='num'>0</td><td class='num'>0</td><td>30.05 22:35</td></tr><tr><td>72</td><td><a href="https://polymarket.com/profile/0x061c6b3bc0e58928b6280087ab064e39fa982df8" target="_blank" rel="noopener">0x061c6b3bc0e58928b6280087ab064e39fa982df8</a></td><td class='num'>79</td><td class='num'>2</td><td>09.11 02:55</td></tr><tr><td>73</td><td><a href="https://polymarket.com/profile/0x6b49054ed460465eec4791e2a19857557b632e46" target="_blank" rel="noopener">0x6b49054ed460465eec4791e2a19857557b632e46</a></td><td class='num'>84</td><td class='num'>6</td><td>09.11 14:16</td></tr><tr><td>74</td><td><a href="https://polymarket.com/profile/0x3783f2d8223f303be7f326928ffaaed78d02171d" target="_blank" rel="noopener">0x3783f2d8223f303be7f326928ffaaed78d02171d</a></td><td class='num'>603</td><td class='num'>0</td><td>09.11 14:26</td></tr><tr><td>75</td><td><a href="https://polymarket.com/profile/0xd37d84a14d70ac7300defe9997074b3b3fd7c735" target="_blank" rel="noopener">0xd37d84a14d70ac7300defe9997074b3b3fd7c735</a></td><td class='num'>1017</td><td class='num'>278</td><td>09.11 12:32</td></tr><tr><td>76</td><td><a href="https://polymarket.com/profile/0x36ba41ebd9e7ed88d670296a6353ae2aecec7c09" target="_blank" rel="noopener">0x36ba41ebd9e7ed88d670296a6353ae2aecec7c09</a></td><td class='num'>0</td><td class='num'>0</td><td>08.08 02:11</td></tr><tr><td>77</td><td><a href="https://polymarket.com/profile/0x837afd52d07051e143624c4dc876cbc8517c6c27" target="_blank" rel="noopener">0x837afd52d07051e143624c4dc876cbc8517c6c27</a></td><td class='num'>4</td><td class='num'>1</td><td>09.11 03:16</td></tr><tr><td>78</td><td><a href="https://polymarket.com/profile/0xc386548ebd8907db084df8457f6e87d655a8386f" target="_blank" rel="noopener">0xc386548ebd8907db084df8457f6e87d655a8386f</a></td><td class='num'>0</td><td class='num'>0</td><td>04.09 17:38</td></tr><tr><td>79</td><td><a href="https://polymarket.com/profile/0x1e52bbdf389526f57abc62641d518868f4c5eb43" target="_blank" rel="noopener">0x1e52bbdf389526f57abc62641d518868f4c5eb43</a></td><td class='num'>274</td><td class='num'>1</td><td>09.11 02:54</td></tr><tr><td>80</td><td><a href="https://polymarket.com/profile/0xc904dfc2959aedd6ad33b5cec30a49a15dc12025" target="_blank" rel="noopener">0xc904dfc2959aedd6ad33b5cec30a49a15dc12025</a></td><td class='num'>0</td><td class='num'>0</td><td>10.10 16:37</td></tr><tr><td>81</td><td><a href="https://polymarket.com/profile/0x8a7e040ee6c140dcac6d5d365b87593c43d1dd3c" target="_blank" rel="noopener">0x8a7e040ee6c140dcac6d5d365b87593c43d1dd3c</a></td><td class='num'>147</td><td class='num'>2</td><td>09.11 12:58</td></tr><tr><td>82</td><td><a href="https://polymarket.com/profile/0xd4c00805cb646818849896be6313e9f7fc5f1002" target="_blank" rel="noopener">0xd4c00805cb646818849896be6313e9f7fc5f1002</a></td><td class='num'>0</td><td class='num'>0</td><td>18.10 11:24</td></tr><tr><td>83</td><td><a href="https://polymarket.com/profile/0x1073cb696e3265bdabc8bafbfd818f0cd3f79b1f" target="_blank" rel="noopener">0x1073cb696e3265bdabc8bafbfd818f0cd3f79b1f</a></td><td class='num'>8</td><td class='num'>2</td><td>08.11 06:31</td></tr><tr><td>84</td><td><a href="https://polymarket.com/profile/0xbda618121665ccbed8c28c69be56aad9cd8a6ae0" target="_blank" rel="noopener">0xbda618121665ccbed8c28c69be56aad9cd8a6ae0</a></td><td class='num'>0</td><td class='num'>0</td><td>23.08 16:24</td></tr><tr><td>85</td><td><a href="https://polymarket.com/profile/0xe1f3852bdcd04ce35ca9166bdb919e78000885de" target="_blank" rel="noopener">0xe1f3852bdcd04ce35ca9166bdb919e78000885de</a></td><td class='num'>0</td><td class='num'>0</td><td>12.08 10:54</td></tr><tr><td>86</td><td><a href="https://polymarket.com/profile/0xad89a6ea44666e496afcd69714147dbdeb3ae006" target="_blank" rel="noopener">0xad89a6ea44666e496afcd69714147dbdeb3ae006</a></td><td class='num'>153</td><td class='num'>9</td><td>09.11 14:40</td></tr><tr><td>87</td><td><a href="https://polymarket.com/profile/0x515d285a7d5065d0406db39f8626313502c80340" target="_blank" rel="noopener">0x515d285a7d5065d0406db39f8626313502c80340</a></td><td class='num'>101</td><td class='num'>0</td><td>09.11 03:05</td></tr><tr><td>88</td><td><a href="https://polymarket.com/profile/0xad5182ee66ffe052a01ac6cb695ce45bf53c2b2a" target="_blank" rel="noopener">0xad5182ee66ffe052a01ac6cb695ce45bf53c2b2a</a></td><td class='num'>17</td><td class='num'>0</td><td>09.11 13:19</td></tr><tr><td>89</td><td><a href="https://polymarket.com/profile/0xe0dbdb7f005f233f4510e4ef7e53a2f76a8df44e" target="_blank" rel="noopener">0xe0dbdb7f005f233f4510e4ef7e53a2f76a8df44e</a></td><td class='num'>674</td><td class='num'>10</td><td>09.11 05:37</td></tr><tr><td>90</td><td><a href="https://polymarket.com/profile/0x9288e89b9e0198d3b09908a8efb1f501ea9159a2" target="_blank" rel="noopener">0x9288e89b9e0198d3b09908a8efb1f501ea9159a2</a></td><td class='num'>0</td><td class='num'>0</td><td>26.07 16:59</td></tr><tr><td>91</td><td><a href="https://polymarket.com/profile/0xf7d6de0fe2918f63b6d4ae27f7928a521085cab5" target="_blank" rel="noopener">0xf7d6de0fe2918f63b6d4ae27f7928a521085cab5</a></td><td class='num'>9</td><td class='num'>0</td><td>03.11 03:21</td></tr><tr><td>92</td><td><a href="https://polymarket.com/profile/0x55021f4cf0a3eae049a9c5f0ed40db0ac825d440" target="_blank" rel="noopener">0x55021f4cf0a3eae049a9c5f0ed40db0ac825d440</a></td><td class='num'>6</td><td class='num'>0</td><td>07.11 12:32</td></tr><tr><td>93</td><td><a href="https://polymarket.com/profile/0x1ca03f0bc7af7d39a6d35c2191bcd39eebf538ba" target="_blank" rel="noopener">0x1ca03f0bc7af7d39a6d35c2191bcd39eebf538ba</a></td><td class='num'>243</td><td class='num'>1</td><td>09.11 12:01</td></tr><tr><td>94</td><td><a href="https://polymarket.com/profile/0x6e553015227ef6f43683a866bec357d6608368d0" target="_blank" rel="noopener">0x6e553015227ef6f43683a866bec357d6608368d0</a></td><td class='num'>522</td><td class='num'>0</td><td>09.11 13:26</td></tr><tr><td>95</td><td><a href="https://polymarket.com/profile/0xb569eb4f98ff5bdec5a655b131566ff3a7dc021e" target="_blank" rel="noopener">0xb569eb4f98ff5bdec5a655b131566ff3a7dc021e</a></td><td class='num'>173</td><td class='num'>20</td><td>09.11 10:45</td></tr><tr><td>96</td><td><a href="https://polymarket.com/profile/0x80584b9462988832da4f6f956bdabe54324f2857" target="_blank" rel="noopener">0x80584b9462988832da4f6f956bdabe54324f2857</a></td><td class='num'>0</td><td class='num'>0</td><td>09.09 15:36</td></tr><tr><td>97</td><td><a href="https://polymarket.com/profile/0x4c74b0c61fefabe9ff715e8516dd9a410cc05383" target="_blank" rel="noopener">0x4c74b0c61fefabe9ff715e8516dd9a410cc05383</a></td><td class='num'>44</td><td class='num'>0</td><td>09.11 02:30</td></tr><tr><td>98</td><td><a href="https://polymarket.com/profile/0x04bd900b9ef8a809e39b10a6207950a3f65a39a0" target="_blank" rel="noopener">0x04bd900b9ef8a809e39b10a6207950a3f65a39a0</a></td><td class='num'>1</td><td class='num'>0</td><td>07.11 03:56</td></tr><tr><td>99</td><td><a href="https://polymarket.com/profile/0x9f8bc7042c8cbb62ea09deb73655d0eb5268b299" target="_blank" rel="noopener">0x9f8bc7042c8cbb62ea09deb73655d0eb5268b299</a></td><td class='num'>0</td><td class='num'>0</td><td>16.07 01:25</td></tr><tr><td>100</td><td><a href="https://polymarket.com/profile/0xce515f99bca5568f016591b98027167cc0841ddb" target="_blank" rel="noopener">0xce515f99bca5568f016591b98027167cc0841ddb</a></td><td class='num'>0</td><td class='num'>0</td><td>18.06 16:05</td></tr></tbody></table></div></section>
+</main></body></html>

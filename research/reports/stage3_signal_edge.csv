@@ -1,0 +1,5 @@
+period,kind,n,edge_ideal_c,ret_ideal_median,fill_rate,ret_filled,edge_filled_c,edge_unfilled_c
+train,random,52794,0.0002,-1.0,0.655,-0.0337,-0.0177,0.0037
+train,signal,23772,0.0332,0.087,0.773,0.0094,-0.0027,0.0987
+test,random,14888,0.0012,-1.0,0.665,-0.0221,-0.0148,0.0018
+test,signal,6375,0.0346,0.099,0.752,0.0229,-0.012,0.1267

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.polymarket-research.paper</string>
+    <key>ProgramArguments</key>
+    <array>
+        <!-- caffeinate keeps the Mac from idle-sleeping while the bot runs (a closed MacBook lid still sleeps) -->
+        <string>/usr/bin/caffeinate</string>
+        <string>-is</string>
+        <string>/Library/Frameworks/Python.framework/Versions/3.11/bin/python3</string>
+        <string>-I</string>
+        <string>/path/to/polymarket-research/paper/bot.py</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/path/to/polymarket-research/paper</string>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>ThrottleInterval</key>
+    <integer>60</integer>
+    <key>StandardOutPath</key>
+    <string>/path/to/polymarket-research/paper/logs/bot.log</string>
+    <key>StandardErrorPath</key>
+    <string>/path/to/polymarket-research/paper/logs/bot.log</string>
+</dict>
+</plist>
